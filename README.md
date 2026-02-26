@@ -1,10 +1,10 @@
-# 🧠 Retail Customer Intelligence System
+#  Retail Customer Intelligence System
 
 ### Customer Segmentation & Churn Prediction using Dunnhumby Dataset
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 Retailers generate large volumes of transactional data but often struggle to proactively identify customers at risk of churn. Losing customers directly impacts revenue, marketing efficiency, and long-term growth.
 
@@ -17,7 +17,7 @@ This project builds an end-to-end customer intelligence system using the Dunnhum
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
 **Source:** Dunnhumby – The Complete Journey (Kaggle)
 
@@ -31,7 +31,7 @@ Dataset link:
 
 ---
 
-## 🎯 Problem Statement
+##  Problem Statement
 
 Develop a machine learning system to segment retail customers and predict churn risk using historical transaction data, enabling data-driven retention strategies.
 
@@ -41,7 +41,7 @@ Churn Definition:
 
 ---
 
-## 🏗 Project Pipeline
+##  Project Pipeline
 
 1. Data Understanding & Cleaning
 2. Customer-Level Feature Engineering
@@ -53,7 +53,7 @@ Churn Definition:
 
 ---
 
-## 🛠 Feature Engineering
+##  Feature Engineering
 
 Transaction-level data was aggregated to customer level using the RFM framework.
 
@@ -73,7 +73,7 @@ All numerical features were scaled before training logistic regression.
 
 ---
 
-## 👥 Customer Segmentation
+##  Customer Segmentation
 
 Applied K-Means clustering (k=4) on RFM features.
 
@@ -88,7 +88,7 @@ Segmentation provides behavioral grouping for targeted marketing strategies.
 
 ---
 
-## 🤖 Churn Prediction Modeling
+##  Churn Prediction Modeling
 
 ### Model Used
 
@@ -108,7 +108,7 @@ Logistic Regression
 
 ---
 
-## 📈 Model Performance
+##  Model Performance
 
 * ROC-AUC: **0.81**
 * Recall (Churn) @ 0.1 threshold: **0.74**
@@ -118,7 +118,7 @@ The model demonstrates strong ranking ability and practical recall performance f
 
 ---
 
-## 🔎 Key Insights
+##  Key Insights
 
 * Frequency is the strongest driver of retention.
 * Higher total spending significantly reduces churn probability.
@@ -127,7 +127,7 @@ The model demonstrates strong ranking ability and practical recall performance f
 
 ---
 
-## 💼 Business Impact
+##  Business Impact
 
 This system enables retailers to:
 
@@ -138,7 +138,7 @@ This system enables retailers to:
 
 ---
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 * Python
 * Pandas
@@ -149,7 +149,7 @@ This system enables retailers to:
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 retail-customer-intelligence/
@@ -164,7 +164,7 @@ retail-customer-intelligence/
 
 ---
 
-## 🚀 Future Improvements
+##  Future Improvements
 
 * Incorporate demographic features
 * Add campaign and coupon response modeling
@@ -174,7 +174,7 @@ retail-customer-intelligence/
 
 ---
 
-## 👤 Author
+##  Author
 
 Swati Yadav
 
