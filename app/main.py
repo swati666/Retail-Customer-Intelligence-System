@@ -35,13 +35,50 @@ def predict_churn(data: CustomerFeatures):
     }
 
 
+# import pandas as pd
+
+# transactions = pd.read_csv("data/transaction_data.csv")
+# latest_date = transactions['DAY'].max()
+
+import os
 import pandas as pd
 
-transactions = pd.read_csv("data/transaction_data.csv")
-latest_date = transactions['DAY'].max()
+DATA_PATH = "data/transaction_data.csv"
+
+transactions = None
+
+if os.path.exists(DATA_PATH):
+    transactions = pd.read_csv(DATA_PATH)
+
+
+# def compute_customer_features(household_key):
+
+#     customer_txn = transactions[
+#         transactions['household_key'] == household_key
+#     ]
+
+#     if customer_txn.empty:
+#         return None
+
+#     last_purchase = customer_txn['DAY'].max()
+
+#     frequency = customer_txn.shape[0]
+#     monetary = customer_txn['SALES_VALUE'].sum()
+#     total_quantity = customer_txn['QUANTITY'].sum()
+#     avg_spend = monetary / frequency
+
+#     return {
+#         "frequency": frequency,
+#         "monetary": monetary,
+#         "total_quantity": total_quantity,
+#         "avg_spend": avg_spend
+#     }
 
 
 def compute_customer_features(household_key):
+
+    if transactions is None:
+        return None
 
     customer_txn = transactions[
         transactions['household_key'] == household_key
@@ -65,29 +102,40 @@ def compute_customer_features(household_key):
     }
 
 
+# @app.get("/predict_customer_churn/{household_key}")
+# def predict_customer_churn(household_key: int):
+
+#     features = compute_customer_features(household_key)
+
+#     if features is None:
+#         return {"error": "Customer not found"}
+
+#     data = np.array([[
+#         features["frequency"],
+#         features["monetary"],
+#         features["total_quantity"],
+#         features["avg_spend"]
+#     ]])
+
+#     data_scaled = scaler.transform(data)
+
+#     prob = model.predict_proba(data_scaled)[0][1]
+
+#     prediction = int(prob > 0.1)
+
+#     return {
+#         "household_key": household_key,
+#         "churn_probability": float(prob),
+#         "prediction": prediction
+#     }
+
+
 @app.get("/predict_customer_churn/{household_key}")
 def predict_customer_churn(household_key: int):
 
+    if transactions is None:
+        return {
+            "error": "Dataset not available in deployment environment"
+        }
+
     features = compute_customer_features(household_key)
-
-    if features is None:
-        return {"error": "Customer not found"}
-
-    data = np.array([[
-        features["frequency"],
-        features["monetary"],
-        features["total_quantity"],
-        features["avg_spend"]
-    ]])
-
-    data_scaled = scaler.transform(data)
-
-    prob = model.predict_proba(data_scaled)[0][1]
-
-    prediction = int(prob > 0.1)
-
-    return {
-        "household_key": household_key,
-        "churn_probability": float(prob),
-        "prediction": prediction
-    }
