@@ -6,8 +6,11 @@ from app.schema import CustomerFeatures
 app = FastAPI(title="Retail Churn Prediction API")
 
 # Load model and scaler once at startup
-model = joblib.load( r"D:\ML Projects\Dunnhumby_Project\models\logistic_model.pkl")
-scaler = joblib.load( r"D:\ML Projects\Dunnhumby_Project\models\scaler.pkl")
+#model = joblib.load( r"D:\ML Projects\Dunnhumby_Project\models\logistic_model.pkl")
+#scaler = joblib.load( r"D:\ML Projects\Dunnhumby_Project\models\scaler.pkl")
+
+model = joblib.load("models/logistic_model.pkl")
+scaler = joblib.load("models/scaler.pkl")
 
 
 @app.post("/predict_churn")
@@ -34,7 +37,7 @@ def predict_churn(data: CustomerFeatures):
 
 import pandas as pd
 
-transactions = pd.read_csv(r"D:\ML Projects\Dunnhumby_data\transaction_data.csv")
+transactions = pd.read_csv("data/transaction_data.csv")
 latest_date = transactions['DAY'].max()
 
 

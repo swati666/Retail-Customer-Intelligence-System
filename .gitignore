@@ -1,0 +1,15 @@
+data/
+*.csv
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.env
+.DS_Store
+
+# Ignore datasets
+data/
+*.csv
+
+# Ignore large ML artifacts if needed
+*.parquet
+*.feather
