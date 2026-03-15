@@ -129,12 +129,12 @@ def compute_customer_features(household_key):
 #         "prediction": prediction
 #     }
 
-@app.get("/")
-def home():
-    return {
-        "message": "Retail Customer Churn Prediction API",
-        "docs": "/docs"
-    }
+# @app.get("/")
+# def home():
+#     return {
+#         "message": "Retail Customer Churn Prediction API",
+#         "docs": "/docs"
+#     }
 
     
 @app.get("/predict_customer_churn/{household_key}")
